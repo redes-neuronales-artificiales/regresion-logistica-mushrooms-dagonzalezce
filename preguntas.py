@@ -122,22 +122,25 @@ def pregunta_03():
     # Importe LogisticRegressionCV
     # Importe OneHotEncoder
     # Importe Pipeline
-    from ____ import ____
+    from sklearn.linear_model import LogisticRegressionCV
+    from sklearn.preprocessing import OneHotEncoder
+    from sklearn.pipeline import Pipeline
+
 
     # Cargue las variables.
-    X_train, _, y_train, _ = pregunta_02()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Cree un pipeline que contenga un estimador OneHotEncoder y un estimador
     # LogisticRegression con una regularización Cs=10
     pipeline = Pipeline(
         steps=[
-            ("____", ____()),
-            ("____", ____(____)),
+            ("oneHotEncoder", OneHotEncoder()),
+            ("logisticRegressionCV", LogisticRegressionCV(Cs=10)),
         ],
     )
 
     # Entrene el pipeline con los datos de entrenamiento.
-    ____.____(____, ____)
+    pipeline.fit(X_train, y_train)
 
     # Retorne el pipeline entrenado
     return pipeline
